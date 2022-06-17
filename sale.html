@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale</title>
+    <style>
+      *{
+        margin: 0px;
+        padding:0px;
+        box-sizing: border-box;
+      }
+     
+      #products{
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows:auto ;
+        gap:10px 20px;
+      }
+      #products>div>img{
+        width:100%;
+
+      }
+      #filter{
+        width:150px;
+        height:40px;
+      }
+      #navbar {
+    padding: 10px 15px;
+    background-color: #F7F8F7;
+    margin-bottom: 10px;
+    display:flex;
+    justify-content: space-between;
+}
+#navbar img {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 50px;
+    
+}
+#navbar button {
+    height: 5px;
+    vertical-align: middle;
+    width: 115px;
+    border: none;
+    background-color: #F7F8F7;
+    font-weight: 400;
+    font-size: 20px;
+    margin: auto;
+    
+}
+#search > input {
+    height: 36px;
+    vertical-align: middle;
+    width: 100%;
+    border: none;
+    background-color: #ECEDEB;
+    vertical-align: middle;
+    
+}
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+   
+        <a href="menswear.html"><button>MENSWEAR</button></a>
+        <a href="womenswear.html"><button>WOMENSWEAR</button></a>
+        <a href="everything.html" class="aaa"><button>EVERYTHING ELSE</button></a>
+        <a href="sale.html"><button>SALE</button></a>  
+        <div id="search">
+          <i class='bx bx-search'> </i>
+          <input placeholder="What are you looking for?"/>
+        </div>
+        <a href=""> <img src="https://res.cloudinary.com/ssenseweb/image/upload/v1471963917/web/ssense_logo_v2.svg"/> </a>
+        <a href=""><button>ENGLISH</button></a>
+         <div id="abc">
+           <a href="signin.html"<button>Sign In</button></a>
+         </div>
+        </a>
+        <a href="cart.html">
+         <div id="cart">
+             <button>  | Shoping Bag</button>
+         </div>     
+        </a>
+     </div>
+    <select id="filter">
+        <option value="All">All Products</option>
+        <option value="Casual">Casual</option>
+        <option value="festive">Festive</option>
+        <option value="party">Party</option>
+    </select>
+   <div id="products">
+     
+   </div>
+</body>
+<script>
+    let productData=[
+
+    {
+    brand: "Puma",
+    name: "ANISSA KERMICHE",
+    price: "2000",
+    size: "X,XX,XXL",
+    productID: "women1",
+    catagory: "Casual",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/211573M489001_1/anissa-kermiche-black-ceramic-love-handles-vase.jpg",
+  },
+  {
+    brand: "Gap",
+    name: "MASTER & DYNAMIC",
+    price: "1347",
+    size: "X,M,L,XX,XXL",
+    productID: "women2",
+    catagory: "festive",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/212770M641002_1/master-and-dynamic-black-mw08-sport-active-noise-cancelling-earphones.jpg",
+  },
+  {
+    brand: "Puma",
+    name: "THEM SKATES",
+    price: "799",
+    size: "M,L,XX,XXS",
+    productID: "women3",
+    catagory: "party",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/212655M679007_1/themskates-black-and-blue-them-909-marius-gaile-complete-pro-roller-blades.jpg",
+  },
+  {
+    brand: "Gap",
+    name: "CARHARTT WORK IN PROGRESS",
+    price: "2000",
+    size: "X,M,L,XXS,XXL",
+    productID: "women4",
+    catagory: "formal",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221111M624000_1/carhartt-work-in-progress-black-and-white-whisper-blanket.jpg",
+  },
+  {
+    brand: "Bady Moo",
+    name: "SNOW PEAK",
+    price: "1347",
+    size: "X,M,L",
+    productID: "women5",
+    catagory: "workout",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/212419M678056_1/snow-peak-silver-home-and-camp-burner.jpg",
+  },
+  {
+    brand: "Pepe jeans",
+    name: "OFF WHITE",
+    price: "979",
+    size: "XXS,M,L",
+    productID: "women6",
+    catagory: "travel",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221607M625001_1/off-white-blue-and-white-arrows-small-cushion.jpg",
+  },
+  {
+    brand: "Puma",
+    name: "CARNE BOLLENTE",
+    price: "2000",
+    size: "XXL,M,L",
+    productID: "women7",
+    catagory: "sports",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/211033M489055_1/carne-bollente-black-and-blue-into-the-squirt-towel.jpg",
+  },
+  {
+    brand: "Gap",
+    name: "GREEN META SIDE TABLE",
+    price: "1347",
+    size: "X,M,L,XX",
+    productID: "women8",
+    catagory: "Casual",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/212756M615005_1/new-tendency-green-meta-side-table.jpg",
+  },
+  {
+    brand: "Bady Moo",
+    name: "ADIDAS KIDS",
+    price: "976",
+    size: "XS,M,L,XX",
+    productID: "women9",
+    catagory: "festive",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221856M707021_1/adidas-kids-kids-white-and-green-stan-smith-velcro-little-kids-sneakers.jpg",
+  },
+  {
+    brand: "Gap",
+    name: "BURBEARY",
+    price: "456",
+    size: "X,L,XX",
+    productID: "women10",
+    catagory: "party",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221376M701011_1/burberry-kids-beige-check-quilted-jacket.jpg"
+  },
+  {
+    brand: "Bee bay",
+    name: "THIM SKATES",
+    price: "986",
+    size: "M,L,XXS",
+    productID: "women11",
+    catagory: "formal",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/212655M679002_1/themskates-blue-brain-dead-edition-them-909-complete-inline-skates.jpg",
+  },
+  {
+    brand: "Kaniroot",
+    name: "SNOW PEAK",
+    price: "567",
+    size: "S,M,L,XXl",
+    productID: "women12",
+    catagory: "workout",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/222419M678005_1/snow-peak-grey-titanium-aurora-bottle-800-ml.jpg",
+  },
+  {
+    brand: "Bee bay",
+    name: "VERSACE",
+    price: "765",
+    size: "S,X,L,XXl",
+    productID: "women13",
+    catagory: "travel",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/211404M601005_1/versace-black-barocco-robe.jpg",
+  },
+  {
+    brand: "Gap",
+    name: "MAISON MARGIELA",
+    price: "9999",
+    size: "S,M,X,XXL",
+    productID: "women14",
+    catagory: "sports",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/211168M148160_1/maison-margiela-black-leather-desk-pad.jpg",
+  },
+  {
+    brand: "Puma",
+    name: "GOLD LA COUP BLANKET",
+    price: "1347",
+    size: "S,M,X,XXL",
+    productID: "women15",
+    catagory: "Casual",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221404M624000_1/versace-gold-la-coup-des-dieux-blanket.jpg",
+  },
+  {
+    brand: "Kaniroot",
+    name: "BURBERAY",
+    price: "799",
+    size: "S,M,L,XXL",
+    productID: "women16",
+    catagory: "festive",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221376M698000_1/burberry-baby-beige-vintage-check-pre-walkers.jpg",
+  },
+  {
+    brand: "Puma",
+    name: "NIKE JORDEN",
+    price: "2000",
+    size: "S,XX",
+    productID: "women17",
+    catagory: "party",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221445M707074_1/jordan-baby-black-jordan-5-retro-ps-sneakers.jpg",
+  },
+  {
+    brand: "Gap",
+    name: "BAPE",
+    price: "1347",
+    size: "S,M,XX,XXL",
+    productID: "women18",
+    catagory: "formal",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221546M645000_1/bape-brown-faux-fur-baby-milo-phone-pouch.jpg",
+  },
+  {
+    brand: "Bee bay",
+    name: "MUSEUM OF PEACE",
+    price: "979",
+    size: "M,XXL,XX",
+    productID: "women19",
+    catagory: "workout",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/211554M000027_1/museum-of-peace-and-quiet-ssense-exclusive-beige-and-black-woodmark-door-mat.jpg",
+  },
+  {
+    brand: "Puma",
+    name: "WACKO MARIA",
+    price: "2000",
+    size: "M,X,L,XXL",
+    productID: "women20",
+    catagory: "travel",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/212948M620000_1/wacko-maria-black-maria-incense-holder.jpg",
+  },
+  {
+    brand: "Puma",
+    name: "WORDMARK MUG",
+    price: "1347",
+    size: "M,L,XXL",
+    productID: "women21",
+    catagory: "sport",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/211554M000025_1/museum-of-peace-and-quiet-ssense-exclusive-green-kindle-wordmark-mug.jpg",
+  },
+  {
+    brand: "Gap",
+    name: "OAKLEY",
+    price: "976",
+    size: "S,XX",
+    productID: "women22",
+    catagory: "Casual",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/212013M678000_1/oakley-black-flight-deck-l-snow-goggles.jpg",
+  },
+  {
+    brand: "Puma",
+    name: "MARNI",
+    price: "456",
+    size: "XXL",
+    productID: "women23",
+    catagory: "festive",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221379M642004_1/marni-white-logo-airpods-case.jpg"
+  },
+  {
+    brand: "Gap",
+    name: "BOTTEGA VENETA",
+    price: "986",
+    size: "S,X,L",
+    productID: "women24",
+    catagory: "party",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221798M645000_1/bottega-veneta-green-intreccio-iphone-13-pro-case.jpg",
+  },
+  {
+    brand: "Kaniroot",
+    name: "BAPE",
+    price: "567",
+    size: "S,XXL,XX",
+    productID: "women25",
+    catagory: "formal",
+    img: "https://img.ssensemedia.com/images/b_white,c_lpad,g_south,h_706,w_470/c_scale,h_320/f_auto,dpr_1.3/221546M628000_1/bape-pink-baby-milo-towel.jpg",
+  },
+]
+let productsCont=document.getElementById("products");
+
+let filter=document.getElementById("filter");
+let cartLS;
+
+if(JSON.parse(localStorage.getItem("cart-page"))===null){
+cartLS=[];
+}
+else{
+  cartLS=JSON.parse(localStorage.getItem("cart-page"))
+}
+
+ function displayProducts(productData){
+  productsCont.innerHTML="";
+  productData.forEach(function(element){
+        let product= document.createElement("div");
+
+        
+        let img=document.createElement("img");
+        img.src=element.img;
+
+
+        let name=document.createElement("h1");
+        name.innerText=element.name;
+
+        let catagory=document.createElement("p");
+        catagory.innerText=element.catagory;
+
+        let addToCart=document.createElement("button");
+        addToCart.innerText="Add To Cart";
+        addToCart.addEventListener("click",function(){
+          if(addToCartFunc(element.productID)===true){
+            alert("Product Added Successfully");
+            cartLS.push(element);
+            localStorage.setItem("cart-page",JSON.stringify(cartLS));
+          }else{
+            alert("Product Already in the cart");
+          }
+          
+          
+        });
+       product.append(img,name,catagory,addToCart);
+        productsCont.append(product)
+    })
+ }
+ displayProducts(productData);
+
+filter.addEventListener("change",function(){
+  if(filter.value==="All"){
+    displayProducts(productData);
+
+  }
+  else{
+    let filtered=productData.filter(function(element){
+      return element.catagory===filter.value;
+    })
+    displayProducts(filtered);
+
+
+  }
+})
+
+function addToCartFunc(id){
+   for(let i=0;i<cartLS.length;i++){
+     if(cartLS[i].productID==id){
+       return false;
+      }
+   }
+   return true;
+}
+</script>
+
+</html>
